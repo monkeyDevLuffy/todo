@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu Mono', monospace;}
+body{
+    background-color: rgb(37, 36, 36);
+    color: white;
+    display: grid;
+    height: 100vh;
+
+    grid-template-columns:5fr 1fr;
+    grid-template-rows:70px 1fr 70px;
+}
+header,
+nav,
+main,
+footer{
+    /* border:1px solid grey; */
+    padding: 10px;
+    
+}
+header{
+    align-self: center;
+    
+}
+header h1{
+    font-size: medium;
+}
+nav{
+    grid-column:2;
+    grid-row:1 / 4;
+}
+
+nav{
+    background-color:white;
+    color: rgb(37, 36, 36);
+    padding:0px;
+}
+.nav-items{
+    margin:70px auto;
+    list-style:none;
+}
+.nav-item{
+    padding:10px 10px;
+    margin-bottom: 10px;
+
+}
+a,
+a:link,
+a:visited,
+a:active{
+    text-decoration: none;
+    color: rgb(37, 36, 36);
+}
+.nav-item:hover{
+    background-color: rgb(37, 36, 36);
+    color: white;
+}
+main img{
+    width:10%;
+    height: auto;
+    border-radius: 50%;
+
+}
+main h1{
+    font-size:3rem;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+footer{
+    align-self: center;
+}
+.social a img{
+    background-color: white;
+    width:30px;
+
+}
+@media(max-width:600px){
+    body{
+        grid-template-columns:1fr;
+        grid-template-rows:70px 2fr 1fr;
+        height: auto;
+    }
+    header{
+        grid-row:1;
+        grid-column:1;
+    }
+    main{
+        grid-row:2;
+        grid-column:1;
+    }
+    nav{
+        grid-row:3;
+        grid-column:1;
+    }
+    footer{
+        visibility: hidden;
+    }
+    @media(max-width:500px){
+        main h1{
+            font-size: 2rem;
+        }
+    }
+} 
