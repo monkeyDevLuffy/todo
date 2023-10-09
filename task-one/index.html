@@ -15,7 +15,7 @@
         <ul class="nav-items">
             <a href="pdfs/resume.pdf" target="_blank"><li class="nav-item">About me .</li></a>
             <a href="pdfs/resume.pdf" download><li class="nav-item">Resume . </li></a>
-            <a href="#"><li class="nav-item">Contact me .</li></a>
+            <a href="#"><li class="nav-item" data-modal-target="#modal">Contact me .</li></a>
             
             
         </ul>
@@ -31,7 +31,22 @@
         </div>
     </main>
     <footer>
-        contact me.
+        <button class="contact-me-button" data-modal-target="#modal">contact me.</button>
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h3>Contact me .</h3>
+                <button data-modal-close class="modal-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input class="modal-element" type="text" name="name" placeholder="Full Name" required>
+                    <input class="modal-element" type="email" name="email" placeholder="email" required>
+                    <textarea class="modal-element" name="Message" placeholder="Message" cols="30" rows="10"></textarea>
+                    <button class="modal-button" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
     </footer>
 </body>
 </html>

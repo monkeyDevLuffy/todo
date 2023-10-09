@@ -11,6 +11,7 @@ body{
 
     grid-template-columns:5fr 1fr;
     grid-template-rows:70px 1fr 70px;
+    min-width: 350px;
 }
 header,
 nav,
@@ -58,7 +59,7 @@ a:active{
     color: white;
 }
 main img{
-    width:10%;
+    width:20%;
     height: auto;
     border-radius: 50%;
 
@@ -81,7 +82,92 @@ footer{
     width:30px;
 
 }
+.modal{
+    width: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* hidden by default */
+    visibility: hidden;
+    border:1px solid white;
+    padding: 10px;
+    background-color: white;
+    color: rgb(37, 36, 36);
+    z-index: 10;
+}
+.modal.active{
+    visibility: visible;
+}
+.modal-header{
+ margin-bottom: 10px;
+ padding: 10px 0px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+
+}
+.modal-body form{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.modal-button{
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    background-color: white;
+    color: rgb(37, 36, 36);
+    padding: 10px;
+    cursor: pointer;
+}
+.modal-button:hover{
+    background-color: rgb(37, 36, 36);
+    color: white;
+}
+
+
+.modal-element,.modal-button{
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1rem;
+}
+.modal-element:focus{
+    outline: 1px solid rgb(37, 36, 36);;
+}
+#overlay{
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+#overlay.active{
+    pointer-events: all;
+    opacity: 1;
+}
+.contact-me-button{
+    border: none;
+    outline:none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: medium;
+}
+.contact-me-button:hover{
+    background-color: white;
+    padding: 10px;
+    font-size: medium;
+    color: rgb(37, 36, 36);
+}
 @media(max-width:600px){
+    main img{
+        width: 30%;
+    }
     body{
         grid-template-columns:1fr;
         grid-template-rows:70px 2fr 1fr;
@@ -102,9 +188,10 @@ footer{
     footer{
         visibility: hidden;
     }
-    @media(max-width:500px){
-        main h1{
-            font-size: 2rem;
-        }
-    }
+   
 } 
+@media(max-width:500px){
+    main h1{
+        font-size: 2rem;
+    }
+}
