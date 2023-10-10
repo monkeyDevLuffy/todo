@@ -2,7 +2,9 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Ubuntu Mono', monospace;}
+    font-family: 'Ubuntu Mono', monospace;
+    overflow:hidden;
+}
 body{
     background-color: rgb(37, 36, 36);
     color: white;
@@ -58,7 +60,7 @@ a:active{
     background-color: rgb(37, 36, 36);
     color: white;
 }
-main img{
+.prof-pic,.social-icon{
     width:20%;
     height: auto;
     border-radius: 50%;
@@ -169,10 +171,22 @@ footer{
     text-align: center;
     display: block;   
     height: 400px;
+    
+}
+.moon-bg{
+    background-color: transparent;
+}
+.saturn-bg{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    top: -50px;
+    right: -50%;
+    opacity: 40%;
 }
 
 @media(max-width:600px){
-    main img{
+    .prof-pic{
         width: 30%;
     }
     body{
