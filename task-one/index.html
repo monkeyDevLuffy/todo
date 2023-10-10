@@ -13,50 +13,123 @@
     </header>
     <nav class="navbar">
         <ul class="nav-items">
-            <a href="pdfs/resume.pdf" target="_blank"><li class="nav-item">About me .</li></a>
+            <a href="#about-me" target="_blank"><li class="nav-item">About me .</li></a>
             <a href="pdfs/resume.pdf" download><li class="nav-item">Resume . </li></a>
-            <a href="#"><li class="nav-item" data-modal-target="#modal">Contact me .</li></a>
-            <a href="#" title="watch music video"><li class="nav-item" data-music-modal-target="#music-modal">Music .</li></a>
+            <a href="#"><li class="nav-item" id="open-modal-button-two">Contact me .</li></a>
+            <a href="#" title="watch music video"><li class="nav-item" id="open-music-modal">Music .</li></a>
             
         </ul>
     </nav>
     <main>
-        <img class="saturn-bg" src="images/saturn.png"class="saturn" alt="">
-        <img class="prof-pic" src="images/profile-t-one.jpg" alt="abhishek p profile picture">
-        <h1>Abhishek Premarajan</h1>
-        <h3>Student | Developer | Artist</h3>
-        <div class="social">
-            <a href="https://github.com/abhishek-mullackal" title="@abhishek-mullackal"><img class="social-icon" src="images/icons/github.png" alt=""></a>
-            <a href="mailto:abhishekmullackal@gmail.com"><img class="social-icon" src="images/icons/gmail.png" alt=""></a>
-            <a href="https://www.linkedin.com/in/abhishek-p-786407209/"><img class="social-icon" src="images/icons/linkedin.png" alt=""></a>
-        </div>
-        <div class="music-modal modal" id="music-modal">
-            <div class="modal-header">
-                <h3>Lofi hip-hop radio.</h3>
-                <button data-music-modal-close class="modal-button">&times;</button>
+        <div class="base">
+            <img class="saturn-bg" src="images/saturn.png"class="saturn" alt="">
+            <img class="prof-pic" src="images/profile-t-one.jpg" alt="abhishek p profile picture">
+            <h1>Abhishek Premarajan</h1>
+            <h3>Student | Developer | Artist</h3>
+            <div class="social">
+                <a href="https://github.com/abhishek-mullackal" title="@abhishek-mullackal"><img class="social-icon" src="images/icons/github.png" alt=""></a>
+                <a href="mailto:abhishekmullackal@gmail.com"><img class="social-icon" src="images/icons/gmail.png" alt=""></a>
+                <a href="https://www.linkedin.com/in/abhishek-p-786407209/"><img class="social-icon" src="images/icons/linkedin.png" alt=""></a>
             </div>
-            <div class="modal-body">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jfKfPfyJRdk?si=QLr1fuv-GR7_kag2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+            <dialog class="music-modal modal" id="music-modal" >
+                <div class="modal-header">
+                    <h3>Lofi hip-hop radio.</h3>
+                    <button  class="modal-button " id="close-music-modal" formmethod="dialog"> &times;</button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jfKfPfyJRdk?si=QLr1fuv-GR7_kag2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </dialog>
         </div>
+        
+        <div class="about-me" id="about-me">
+            <h3 class="about-me-header">hello, i am abhishek</h3>
+            <div class="about-me-content"></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit sapiente hic expedita, beatae corporis fugit debitis delectus consectetur molestias numquam ipsa tempora. Optio obcaecati deserunt eaque error! Expedita officiis exercitationem corrupti numquam aspernatur animi dignissimos ut libero sed reprehenderit, perferendis repellat nostrum assumenda, delectus eaque repellendus, laudantium inventore saepe ea labore totam magni eligendi praesentium officia? Magnam recusandae aut libero consequuntur! Nostrum enim esse rem, voluptate praesentium nulla facere perspiciatis fugit inventore id. Quaerat sed voluptates voluptatibus laboriosam quisquam pariatur temporibus aperiam autem qui quo nesciunt necessitatibus deleniti quam praesentium quis architecto odit molestiae adipisci, optio consectetur asperiores sapiente eveniet!
+            </p>
+        </div>    
     </main>
     <footer>
-        <button class="contact-me-button" data-modal-target="#modal">contact me.</button>
-        <div class="modal" id="modal">
-            <div class="modal-header">
-                <h3>Contact me .</h3>
-                <button data-modal-close class="modal-button">&times;</button>
+        <button class="contact-me-button marquee" id="open-modal">Contact me.</button>
+        <dialog id="form-dialog" class="form-dialog">
+           <div class="modal-header"><h3>contact me</h3></div>
+           <form class="dialog-form">
+            <input autofocus class="form-item" name="name" placeholder="enter your name" id="form-name" >
+            <input class="form-item" name="email" placeholder="enter your email" id="form-email" >
+            <textarea class="form-item" name="message" id="form-message" cols="30" placeholder="enter your message here" rows="10" ></textarea>
+            <div>
+              <button value="cancel" formmethod="dialog">Cancel</button>
+              <button id="sendBtn" value="default">Send</button>
             </div>
-            <div class="modal-body">
-                <form>
-                    <input class="modal-element" type="text" name="name" placeholder="Full Name" required>
-                    <input class="modal-element" type="email" name="email" placeholder="email" required>
-                    <textarea class="modal-element" name="Message" placeholder="Message" cols="30" rows="10"></textarea>
-                    <button class="modal-button" type="submit">Submit</button>
-                </form>
-            </div>
-        </div>
-        <div class="overlay" id="overlay"></div>
+          </form>
+        </dialog>
+        <dialog id="output">
+            <p>thank you for your response</p>
+            <p>name :<span id="op-name">name</span></p>
+            <p>email : <span id="op-email">email</span></p>
+            <p>message : <span id="op-message">message</span></p>
+            <form method="dialog">
+                <button>ok</button>
+            </form>
+        </dialog>
+      
     </footer>
+    <script>
+        const dialog=document.getElementById("form-dialog");
+        const openButton=document.getElementById("open-modal");
+        const openButtonTwo=document.getElementById("open-modal-button-two");
+        const op = document.getElementById("output");
+
+        const nameInputBox=dialog.querySelector("#form-name");
+        const ouputName=document.getElementById("op-name");
+
+        const emailInputBox=dialog.querySelector("#form-email");
+        const ouputEmail=document.getElementById("op-email");
+
+        const msgInputBox=dialog.querySelector("#form-message");
+        const ouputMessage=document.getElementById("op-message");
+
+        const sendButton = document.getElementById('sendBtn')
+
+        openButton.addEventListener("click",()=>{
+            dialog.showModal();
+        });
+        openButtonTwo.addEventListener("click",()=>{
+            dialog.showModal();
+        })
+       
+        nameInputBox.addEventListener("input",(e)=>{
+            ouputName.innerText=nameInputBox.value;
+        });
+        emailInputBox.addEventListener("input",(e)=>{
+            ouputEmail.innerText=emailInputBox.value;
+        });
+        msgInputBox.addEventListener("input",(e)=>{
+            ouputMessage.innerText=msgInputBox.value;
+        });
+        sendButton.addEventListener("click",(event)=>{
+            nameInputBox.value="";
+            emailInputBox.value="";
+            msgInputBox.value="";
+            op.show();
+            event.preventDefault();
+            dialog.close()
+        });
+
+        // for music modal
+
+        const musicDialog=document.getElementById("music-modal");
+        const openMusicButton=document.getElementById("open-music-modal");
+        const closeMusicButton=document.getElementById("close-music-modal");
+
+        openMusicButton.addEventListener("click",()=>{
+            musicDialog.showModal();
+        });
+        closeMusicButton.addEventListener("click",()=>{
+            musicDialog.close();
+        })
+
+
+    </script>
 </body>
 </html>

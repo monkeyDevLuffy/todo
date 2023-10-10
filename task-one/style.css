@@ -3,13 +3,12 @@
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu Mono', monospace;
-    overflow:hidden;
+    overflow-x:hidden;
 }
 body{
     background-color: rgb(37, 36, 36);
     color: white;
     display: grid;
-    height: 100vh;
 
     grid-template-columns:5fr 1fr;
     grid-template-rows:70px 1fr 70px;
@@ -49,6 +48,19 @@ nav{
     margin-bottom: 10px;
 
 }
+.about-me{
+    height:70vh;
+    padding:50px 100px;
+}
+.about-me h3{
+    padding-bottom: 30px;
+}
+.about-me-content{
+    width: 70%;
+    font-size: medium;
+    
+}
+
 a,
 a:link,
 a:visited,
@@ -66,15 +78,16 @@ a:active{
     border-radius: 50%;
 
 }
-main h1{
+.base h1{
     font-size:3rem;
 }
-main{
+.base{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    height: 100vh;
 }
 footer{
     align-self: center;
@@ -84,74 +97,7 @@ footer{
     width:30px;
 
 }
-.modal{
-    width: 50%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    /* hidden by default */
-    visibility: hidden;
-    border:1px solid white;
-    padding: 10px;
-    background-color: white;
-    color: rgb(37, 36, 36);
-    z-index: 10;
-}
-.modal.active{
-    visibility: visible;
-}
-.modal-header{
- margin-bottom: 10px;
- padding: 10px 0px;
- display: flex;
- justify-content: space-between;
- align-items: center;
 
-}
-.modal-body form{
-    display: flex;
-    flex-direction: column;
-
-}
-
-.modal-button{
-    outline: none;
-    border: none;
-    font-size: 1.5rem;
-    background-color: white;
-    color: rgb(37, 36, 36);
-    padding: 10px;
-    cursor: pointer;
-}
-.modal-button:hover{
-    background-color: rgb(37, 36, 36);
-    color: white;
-}
-
-
-.modal-element,.modal-button{
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 1rem;
-}
-.modal-element:focus{
-    outline: 1px solid rgb(37, 36, 36);;
-}
-#overlay{
-    position: fixed;
-    top: 0;
-    opacity: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    pointer-events: none;
-}
-#overlay.active{
-    pointer-events: all;
-    opacity: 1;
-}
 .contact-me-button{
     border: none;
     outline:none;
@@ -173,6 +119,15 @@ footer{
     height: 400px;
     
 }
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+.modal-button{
+    font-size: medium;
+}
 .moon-bg{
     background-color: transparent;
 }
@@ -184,10 +139,62 @@ footer{
     right: -50%;
     opacity: 40%;
 }
+.marquee{
+    overflow: hidden;
+    position: relative;
+    animation: marquee 3s linear infinite;
+}
+.dialog-form{
+    display: flex;
+    flex-direction: column;
+}
+.form-item{
+    padding:10px;
+    margin-bottom: 10px;
+}
+.form-tem:focus{
+    outline: 1px solid rgb(37, 36, 36);
 
+}
+@keyframes marquee{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+.marquee:hover{
+    animation: marquee none;
+}
+dialog{
+    width: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border:1px solid white;
+    padding: 10px;
+    background-color: white;
+    color: rgb(37, 36, 36);
+    z-index: 10;
+}
+dialog button{
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    background-color: white;
+    color: rgb(37, 36, 36);
+    padding: 10px;
+    cursor: pointer;
+}
+dialog button:hover{
+    background-color: rgb(37, 36, 36);
+    color: white;
+}
 @media(max-width:600px){
     .prof-pic{
-        width: 30%;
+        width: 30%; 
     }
     body{
         grid-template-columns:1fr;
