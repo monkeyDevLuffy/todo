@@ -164,6 +164,13 @@ footer{
     font-size: medium;
     color: rgb(37, 36, 36);
 }
+.music-modal .modal-body{
+    padding:10px auto;
+    text-align: center;
+    display: block;   
+    height: 400px;
+}
+
 @media(max-width:600px){
     main img{
         width: 30%;
