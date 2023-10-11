@@ -20,6 +20,7 @@ main,
 footer{
     /* border:1px solid grey; */
     padding: 10px;
+    overflow-y: hidden;
     
 }
 header{
@@ -49,8 +50,9 @@ nav{
 
 }
 .about-me{
-    height:70vh;
+    height:40%;
     padding:50px 100px;
+    overflow-y: hidden;
 }
 .about-me h3{
     padding-bottom: 30px;
@@ -203,6 +205,26 @@ input:invalid{
 }
 input:focus:invalid{
     border: 1px solid rgb(37, 36, 36);
+}
+
+table{
+    
+    border: 1px solid white;
+    margin-top: 30px;
+}
+.table{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+thead{
+    background-color: white;
+    color: rgb(37, 36, 36);
+    
+}
+th,td{
+    padding: 10px;
+    border: 1px solid white;
 }
 @media(max-width:600px){
     .prof-pic{
