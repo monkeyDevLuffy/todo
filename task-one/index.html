@@ -54,17 +54,17 @@
         <dialog id="form-dialog" class="form-dialog">
            <div class="modal-header"><h3>contact me</h3></div>
            <form class="dialog-form">
-            <input autofocus class="form-item" name="name" placeholder="enter your name" id="form-name" >
-            <input class="form-item" name="email" placeholder="enter your email" id="form-email" >
-            <textarea class="form-item" name="message" id="form-message" cols="30" placeholder="enter your message here" rows="10" ></textarea>
+            <input  autofocus class="form-item" type="text" name="name" placeholder="enter your name" id="form-name" required>
+            <input  class="form-item" name="email" type="email" placeholder="enter your email" id="form-email" required >
+            <textarea class="form-item" type="text" name="message" id="form-message" cols="30" placeholder="enter your message here" rows="10" required></textarea>
             <div>
-              <button value="cancel" formmethod="dialog">Cancel</button>
-              <button id="sendBtn" value="default">Send</button>
+              <button id="cancel-dialog" formmethod="dialog">Cancel</button>
+              <button id="sendBtn" value="">Send</button>
             </div>
           </form>
         </dialog>
         <dialog id="output">
-            <p>thank you for your response</p>
+            <h3>thank you for your response</h3>
             <p>name :<span id="op-name">name</span></p>
             <p>email : <span id="op-email">email</span></p>
             <p>message : <span id="op-message">message</span></p>
@@ -79,6 +79,7 @@
         const openButton=document.getElementById("open-modal");
         const openButtonTwo=document.getElementById("open-modal-button-two");
         const op = document.getElementById("output");
+        const cancelBtn=document.getElementById("cancel-dialog");
 
         const nameInputBox=dialog.querySelector("#form-name");
         const ouputName=document.getElementById("op-name");
@@ -90,6 +91,8 @@
         const ouputMessage=document.getElementById("op-message");
 
         const sendButton = document.getElementById('sendBtn')
+
+        const email_valid =false;
 
         openButton.addEventListener("click",()=>{
             dialog.showModal();
@@ -103,17 +106,27 @@
         });
         emailInputBox.addEventListener("input",(e)=>{
             ouputEmail.innerText=emailInputBox.value;
+            
         });
         msgInputBox.addEventListener("input",(e)=>{
             ouputMessage.innerText=msgInputBox.value;
         });
         sendButton.addEventListener("click",(event)=>{
-            nameInputBox.value="";
-            emailInputBox.value="";
-            msgInputBox.value="";
-            op.show();
-            event.preventDefault();
-            dialog.close()
+
+            if(!(nameInputBox.value===""||emailInputBox.value===""||msgInputBox.value==="")){
+               
+                dialog.close();
+                op.show();
+                nameInputBox.value="";
+                emailInputBox.value="";
+                msgInputBox.value="";
+            }else{
+                alert("please enter correct details");
+            }
+           
+        });
+        cancelBtn.addEventListener("click",()=>{
+            dialog.close();
         });
 
         // for music modal
