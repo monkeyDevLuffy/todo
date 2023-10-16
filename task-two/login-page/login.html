@@ -8,28 +8,40 @@
 </head>
 <body>
     <header>
-        <h3>Site name</h3>
+        <h2>Site name</h2>
         <a href="#"><p class="sign-up-button">sign up</p></a>
     </header>
 
     <div class="email-login">
         <div class="email-login-box">
+            <h3>login .</h3>
             <form >
-                <input class="form-item" type="email" name="email" placeholder="enter your email">
-                <input class="form-item" type="password" name="password" placeholder="enter your password">
-                <button class="form-item">login</button>
+                <input class="form-item" id="login-email" type="email" name="email" placeholder="enter your email" required autofocus>
+                <input class="form-item" id="login-password" type="password" name="password" placeholder="enter your password" required>
+                <button class="form-item" id="login-submit" type="submit">login</button>
             </form>
         </div>
     </div>   
     <div class="other-login">
         <div class="other-login-box">
-            <div>
                 <h4>other login options</h4>
-                <p>login with google</p>
-                <p>login with facebook</p>
-            </div>
-        </div>
-        
+                <div class="other-items">
+                    <img src="icons/googleicon.png" alt="">
+                    <span class=>login with google</span>
+                </div>
+                <div class="other-items">
+                    <img src="icons/facebookicon.png" alt="">
+                    <span class=>login with facebook</span>
+                </div>
+                <div class="other-items">
+                    <img src="icons/phoneicon.png" alt="">
+                    <span class=>login with mobile number</span>
+                </div>
+                
+                
+                
+        </div>    
     </div>
+    <script src="../script.js"></script>
 </body>
 </html>
