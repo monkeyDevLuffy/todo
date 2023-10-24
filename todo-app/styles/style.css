@@ -1,3 +1,8 @@
+/* colors used :  
+    #00308F - 
+    #0069c2 - maincolor
+
+*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 *{
@@ -36,7 +41,7 @@ form>*{
     line-height: 2rem;
 }
 button{
-    background-color: rgb(120, 120, 201);
+    background-color: #0069c2;
     color: white;
     border: none;
     width: 100%;
