@@ -13,13 +13,13 @@ function createNewProject(){
 
 
 }
-function deleteProject(event){
+function selectProject(event){
     if(event.target.classList.contains("deleteButton")){
         console.log(true);
         console.log(event.target.parentElement);
         projects.removeChild(event.target.parentElement);
-    }else{
-        console.log(false);
+    }else if(event.target.classList.contains("card")){
+        window.location.href="tasks.html";
     }
 }
 
@@ -38,5 +38,5 @@ createProjectButton.addEventListener("click",()=>{
     createNewProject();  
 })
 projects.addEventListener("click",(event)=>{
-    deleteProject(event);
+    selectProject(event);
 })
