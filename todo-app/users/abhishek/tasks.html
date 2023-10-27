@@ -28,8 +28,8 @@
             <h2>Project Name</h2>
             <span id="open-add-task" title="add a new task" class="material-symbols-outlined" >add_circle</span>
             <div class="todo" id="todo">
-                <h3>Todo</h3>
-                <ol id="todo-ordered-list">
+                <h3>todo</h3>
+                <ol id="todo-ol">
                     <li class="todo-item">
                         <input type="checkbox" /><span>task1</span>
                     </li><li class="todo-item">
@@ -45,19 +45,19 @@
                 <h3>upcoming</h3>
                 <ol>
                     <li class="todo-item">
-                        <input type="checkbox" /><span>task1</span>
+                        <span>task1</span>
                     </li>
                     <li class="todo-item">
-                        <input type="checkbox" /><span>task2</span>
+                        <span>task2</span>
                     </li>
                     <li class="todo-item">
-                        <input type="checkbox" /><span>task3</span>
+                        <span>task3</span>
                     </li>
                 </ol>
             </div>
             <div class="completed" id="completed">
                 <h3>completed</h3>
-                <ol>
+                <ol id="completed-ol">
                     <li class="todo-item">task1</li>
                     <li class="todo-item">task2</li>
                     <li class="todo-item">task3</li>
@@ -67,11 +67,14 @@
         </main>   
     </div>
     <dialog id="add-task-dialog">
-        <p>add new task</p>
         <form>
+            <p>add new task</p>
             <input type="text" name="new-task-name" placeholder="what to do.">
-          <button value="" id="add-task-button">add</button>
-          <button formmethod="dialog">cancel</button>
+            <div class="form-buttons">
+                <button value="" id="add-task-button">add</button>
+                <button formmethod="dialog">cancel</button>
+            </div>
+            
         </form>
     </dialog> 
 </body>
