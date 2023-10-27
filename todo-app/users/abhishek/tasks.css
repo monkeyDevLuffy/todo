@@ -5,20 +5,21 @@
     font-family: 'Poppins', sans-serif;
 
 }
-body{
+.container{
     display:grid;
     grid-template-columns: 100px 4fr;
     min-height: 100vh;
 }
 ul li{
     list-style-type: none;
+    cursor: pointer;
 }
 .todo, .upcoming, .completed{
     min-height: 100px;
     margin:1rem;
     min-height:100px;
     padding: 1rem;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid grey;
 }
 main>h2{
     margin: 1rem;
@@ -36,13 +37,35 @@ li input{
 }
 
 nav ul{
-    height: 100%;
+    padding: 0px;
+    padding-bottom: 0px;
+    padding-top:2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     color: white;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+
 }
-nav img{
-    width: 3rem;
-    color: white;
+
+#open-add-task{
+    cursor: pointer;
+    position: fixed;
+    right:1rem;
+    top:1rem;
+    padding: 1rem;
+}
+dialog{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+dialog::backdrop{
+    background-color: black;
+    opacity: 0.2;
+
 }
