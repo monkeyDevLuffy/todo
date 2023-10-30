@@ -1,8 +1,9 @@
-//funcitons
+//functions
 function openCreateProjectDialog(){
     createProjectDialog.showModal();
 }
-function createNewProject(event){
+
+async function createNewProject(event){
     event.preventDefault();
     const name=dialogInput.value;
     if(name!==""){
@@ -12,7 +13,6 @@ function createNewProject(event){
     }
    
 }
-//function to delete project
 function deleteProject(event){
     if(event.target.classList.contains("deleteButton")){
         projects.removeChild(event.target.parentElement);
@@ -48,8 +48,6 @@ async function getProjects(){
         projects.appendChild(newDiv);
 
     });
-    
-
 }
 
 
