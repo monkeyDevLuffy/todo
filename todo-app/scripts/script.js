@@ -57,8 +57,10 @@ const createProjectButton = document.getElementById("create-project");
 const projectDialogButton = document.getElementById("project-dialog-button")
 const dialogInput = document.querySelector("dialog input");
 const createProjectDialog=document.getElementById("new-project-dialog");
+const logoutBtn = document.getElementById("logout-button");
 
-
+const uname = localStorage.getItem("username");
+document.getElementById('username').innerText=(uname[0].toUpperCase()+uname.slice(1));
 
 //event listeners
 document.addEventListener("DOMContentLoaded",()=>{
@@ -72,4 +74,9 @@ projects.addEventListener("click",(event)=>{
 })
 projectDialogButton.addEventListener('click',(event)=>{
     createNewProject(event);
+})
+logoutBtn.addEventListener('click',()=>{
+    localStorage.removeItem("username");
+    localStorage.removeItem("project");
+    window.location.href='../login.html';
 })

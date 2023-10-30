@@ -90,7 +90,7 @@ const todoOl=document.getElementById("todo-ol");
 const completedOl = document.getElementById("completed-ol");
 const upcomingOl= document.getElementById("upcoming-ol");
 const pendingOl= document.getElementById("pending-ol");
-
+const homeBtn = document.getElementById("go-home");
 
 console.log(localStorage.getItem("project"));
 console.log(localStorage.getItem('username'));
@@ -102,3 +102,6 @@ addTaskButton.addEventListener("click",addNewTask);
 todoOl.addEventListener("click",changeTaskStatus);
 completedOl.addEventListener("click",changeTaskStatus);
 window.addEventListener('DOMContentLoaded',getTasks);
+homeBtn.addEventListener('click',()=>{
+    window.location.href="./projects.html"; 
+})

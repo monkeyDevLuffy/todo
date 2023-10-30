@@ -19,7 +19,7 @@ async function userSignin(event){
         }else{
             if(inputPassword===user.password){
                 localStorage.setItem("username", user.username);
-                window.location.replace('/users/abhishek/projects.html');
+                window.location.replace('/users/projects.html');
             }else{
                 alert("incorrect password");
                 return
@@ -32,13 +32,6 @@ async function userSignin(event){
 const loginBtn = document.querySelector("#login-button");
 const googleLoginButton = document.getElementById("google-login");
 
-const users = (fetch("./user-info.json").then((res)=>(res.json())).then((data)=>{
-    const user = data.find(element=>{
-        if(element.username=="abhishek")
-            return true;
-        return false;
-    })
-}));
 
 //event listeners
 window.addEventListener("submit",(event)=>{

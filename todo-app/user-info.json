@@ -5,7 +5,8 @@
       "projects":[
         {
           "name":"personal project",
-          "tasks":[{
+          "tasks":[
+            {
               "description":"complete homework",
               "startdate":"2023/10/24",
               "enddate":"2023/11/2",
@@ -35,9 +36,7 @@
         {
           "name":"company project",
           "tasks":{
-            "todo":["attend meeting","do project"],
-            "upcoming":["have lunch"],
-            "completed":["sleep"]
+              
           }
         },
         {
