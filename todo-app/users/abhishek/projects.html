@@ -20,24 +20,20 @@
             <img src="../../images/plus.png" id="create-project">
         </div>
         <div class="container" id="projects" data-id="1">
-            <div class="card" href="#">
-                <h5>todo app</h5>
-                <span  class="material-symbols-outlined deleteButton">delete</span>
-                
-            </div>
-            <div class="card" href="#" data-id="2">
-                <h5>personal project</h5>
-                <span  class="material-symbols-outlined deleteButton">delete</span>
-
-
-            </div>
-            <div class="card" href="#" data-id="3">
-                <h5>company project</h5>
-                <span  class="material-symbols-outlined deleteButton">delete</span>
-            </div>
           
         </div>
     </main>
+
+    <dialog id="new-project-dialog">
+        <form>
+            <p>add new project</p>
+            <input type="text" name="new-task-name" placeholder="enter project name">
+            <div class="form-buttons">
+                <button value="" id="project-dialog-button">add</button>
+                <button formmethod="dialog">cancel</button>
+            </div>  
+        </form>
+    </dialog> 
 
 </body>
 </html>

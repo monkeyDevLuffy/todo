@@ -72,3 +72,39 @@ header>button{
 .material-symbols-outlined:hover{
     color: red;
   }
+  dialog{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: none;
+    border-radius: 0.5rem;
+
+}
+
+dialog button{
+    color: white;
+    background-color: #0069c2;
+    border: none;
+    padding: .4rem;
+    transition: background-color 1s,box-shadow 1s;
+    width: 50%;
+}
+
+dialog button:hover{
+  box-shadow: 0px 0px 2px black;  
+  background-color: #003a6c;
+}
+dialog::backdrop{
+    background-color: black;
+    opacity: 0.2;
+
+}
+form>*{
+    margin: .5rem;
+}
+.form-buttons{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}

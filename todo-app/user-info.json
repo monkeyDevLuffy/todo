@@ -1,7 +1,34 @@
 [
     {
       "username": "abhishek",
-      "password": "12345"
+      "password": "12345",
+      "projects":[
+        {
+          "name":"personal project",
+          "tasks":{
+            "todo":["complete homework","compelete assignments"],
+            "upcoming":["sleep"],
+            "completed":["study"]
+          }
+        },
+        {
+          "name":"company project",
+          "tasks":{
+            "todo":["attend meeting","do project"],
+            "upcoming":["have lunch"],
+            "completed":["sleep"]
+          }
+        },
+        {
+          "name":"hobby project",
+          "tasks":{
+            "todo":["hehehe meeting","never do projects"],
+            "upcoming":["review meeting"],
+            "completed":["everything"]
+          }
+        }
+      ]
+       
     },
     {
       "username": "pooja",

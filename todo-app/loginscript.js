@@ -13,12 +13,12 @@ async function userSignin(event){
         const user = users.find(element=>{
             return element.username===inputUsername?true:false;
         });
-        console.log(user);
         if(user===undefined){
             alert("user is not registered");
             return;
         }else{
             if(inputPassword===user.password){
+                localStorage.setItem("username", user.username);
                 window.location.replace('/users/abhishek/projects.html');
             }else{
                 alert("incorrect password");
@@ -38,7 +38,6 @@ const users = (fetch("./user-info.json").then((res)=>(res.json())).then((data)=>
             return true;
         return false;
     })
-    console.log(user);        
 }));
 
 //event listeners

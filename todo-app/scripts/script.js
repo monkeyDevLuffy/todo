@@ -1,42 +1,77 @@
 //funcitons
-function createNewProject(){
-    const project = document.createElement("div");
-    const name = document.createTextNode(`project ${projects.childElementCount+1}`);
-    const deletebutton = document.createElement('span');
-    deletebutton.className="material-symbols-outlined deleteButton";
-    deletebutton.innerText="delete";
-    project.className="card";
-    project.setAttribute("data-id",`${projects.childElementCount+1}`)
-    project.appendChild(name);
-    project.appendChild(deletebutton)
-    projects.appendChild(project);
-
-
+function openCreateProjectDialog(){
+    createProjectDialog.showModal();
 }
-function selectProject(event){
+function createNewProject(event){
+    event.preventDefault();
+    const name=dialogInput.value;
+    if(name!==""){
+        const project = createNewProjectCard(name);
+        projects.appendChild(project);
+        createProjectDialog.close();
+    }
+   
+}
+//function to delete project
+function deleteProject(event){
     if(event.target.classList.contains("deleteButton")){
-        console.log(true);
-        console.log(event.target.parentElement);
         projects.removeChild(event.target.parentElement);
     }else if(event.target.classList.contains("card")){
-        window.location.href="tasks.html";
+        goToTasksPage(event.target);
+        
     }
 }
+function goToTasksPage(card){
+    console.log(card.getAttribute("data-id"));
+    localStorage.setItem("project",card.getAttribute("data-id")-1);
+    window.location.href="tasks.html";
+}
+function createNewProjectCard(name="newname"){
+    const newDiv=document.createElement('div');
+    newDiv.classList="card";
+    newDiv.setAttribute("href",'#');
+    newDiv.setAttribute("data-id",`${projects.childElementCount+1}`);
+    newDiv.innerHTML=`<h5>${name}</h5>
+        <span  class="material-symbols-outlined deleteButton">delete</span>`;
+    return newDiv;
 
+
+}
+async function getProjects(){
+    const users = await fetch("../../user-info.json").then((res)=>res.json());
+    const user = users.find((element)=>{
+       return (element.username===localStorage.getItem("username"))?true:false;
+    });
+    const fetchedProjects= user.projects;
+    fetchedProjects.forEach(element => {
+        const newDiv =createNewProjectCard(element.name)
+        projects.appendChild(newDiv);
+
+    });
+    
+
+}
 
 
 
 const projects= document.getElementById("projects");
 const createProjectButton = document.getElementById("create-project");
-console.log(createProjectButton);
+const projectDialogButton = document.getElementById("project-dialog-button")
+const dialogInput = document.querySelector("dialog input");
+const createProjectDialog=document.getElementById("new-project-dialog");
 
 
 
 //event listeners
-
+document.addEventListener("DOMContentLoaded",()=>{
+    getProjects();
+})
 createProjectButton.addEventListener("click",()=>{
-    createNewProject();  
+    openCreateProjectDialog();  
 })
 projects.addEventListener("click",(event)=>{
-    selectProject(event);
+    deleteProject(event);
+})
+projectDialogButton.addEventListener('click',(event)=>{
+    createNewProject(event);
 })
