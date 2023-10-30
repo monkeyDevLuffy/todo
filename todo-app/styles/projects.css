@@ -108,3 +108,6 @@ form>*{
     gap: 1rem;
     justify-content: center;
 }
+h5{
+    cursor: pointer;
+}

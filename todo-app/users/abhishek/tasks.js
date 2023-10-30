@@ -4,42 +4,59 @@ async function getTasks(){
     const user = users.find((element)=>{
        return (element.username===localStorage.getItem("username"))?true:false;
     });
+    const projectHeading =  document.getElementById('project-name');
+    projectHeading.innerText=user.projects[localStorage.getItem("project")].name;
     const tasks = user.projects[localStorage.getItem("project")].tasks;
     displayTasks(tasks);
 }
-function createNewTaskNode(name,section){
+function createNewTaskNode(name,option){
     const newTask = document.createElement("li");
     newTask.className="todo-item";
-    if(section === upcomingOl){
-        newTask.innerHTML=`<span>${name}</span>`
-    }else if(section === completedOl){
-        newTask.innerHTML=`<input type="checkbox" checked/><span>${name}</span>`
-    }else{
-        newTask.innerHTML=`<input type="checkbox" /><span>${name}</span>`
+    if(option==='completed'){
+        newTask.innerHTML=`<input type="checkbox" checked/><span>${name}</span>`;
+    }else if(option==="pending" || option === 'upcoming'){
+        newTask.innerHTML=`<span>${name}</span>`;
     }
-    section.appendChild(newTask);
+    else{
+        newTask.innerHTML=`<input type="checkbox" /><span>${name}</span>`;
+    }
+    
+    return newTask;
+}
+function classifyTasks(task){
+    const start = new Date(task.startdate);
+    const end = new Date(task.enddate);
+    // console.log(d.getTime());
+    if(task.completed==='true'){
+        completedOl.appendChild(createNewTaskNode(task.description,"completed"))
+    }else if(end<Date.now()){
+        pendingOl.appendChild(createNewTaskNode(task.description,'pending'));
+    }else if(start>Date.now()){
+        upcomingOl.appendChild(createNewTaskNode(task.description,'upcoming'));
+    }else{
+        todoOl.appendChild(createNewTaskNode(task.description));
+    }
+   
 }
 function displayTasks(tasks){
-    console.log(tasks);
-    tasks.todo.forEach(element => {
-        createNewTaskNode(element,todoOl);
+    tasks.forEach(element => {
+        classifyTasks(element);
     });
-    tasks.upcoming.forEach(element=>{
-        createNewTaskNode(element,upcomingOl);
-
-    })
-    tasks.completed.forEach(element=>{
-        createNewTaskNode(element,completedOl);
-    })
 }
 function showTaskPopup(){
     taskPopup.showModal();
 }
 function addNewTask(event){
     event.preventDefault();
-    if(dialogInput.value!==""){
+    if(taskDescriptionInput.value!=="" && taskStartInput.value!=="" && taskEndInput.value !==""){
         taskPopup.close();
-        createNewTaskNode(dialogInput.value,todoOl);
+        const taskObj={
+            "description":taskDescriptionInput.value,
+            "startdate":taskStartInput.value,
+            "enddate":taskEndInput.value,
+            "completed":"false"   
+        }
+        classifyTasks(taskObj);
     }
 
 
@@ -66,10 +83,13 @@ function changeTaskStatus(event){
 const taskPopup=document.getElementById("add-task-dialog");
 const openTaskDialogButton = document.querySelector("#open-add-task");
 const addTaskButton = document.querySelector("#add-task-button");
-const dialogInput = document.querySelector("dialog input")
+const taskDescriptionInput = document.getElementById("task-description-input");
+const taskStartInput = document.getElementById("task-start-input");
+const taskEndInput = document.getElementById    ("task-end-input");
 const todoOl=document.getElementById("todo-ol");
 const completedOl = document.getElementById("completed-ol");
 const upcomingOl= document.getElementById("upcoming-ol");
+const pendingOl= document.getElementById("pending-ol");
 
 
 console.log(localStorage.getItem("project"));

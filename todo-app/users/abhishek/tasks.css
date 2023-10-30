@@ -14,7 +14,7 @@ ul li{
     list-style-type: none;
     cursor: pointer;
 }
-.todo, .upcoming, .completed{
+.todo, .upcoming, .completed,.pending{
     min-height: 100px;
     margin:1rem;
     min-height:100px;

@@ -13,19 +13,15 @@
     <div class="container">
         <nav>
             <ul>
-                <li><span class="material-symbols-outlined">home</span></li>
-                <li><span class="material-symbols-outlined">star</span></li>
-                <li><span class="material-symbols-outlined">
-                    list_alt
-                    </span></li>
-                <li><span class="material-symbols-outlined">task_alt</span></li>
-                <li><span class="material-symbols-outlined">
-                    delete
-                    </span></li>
+                <li><span class="material-symbols-outlined" title="home">home</span></li>
+                <li><span class="material-symbols-outlined" title="favorite tasks">star</span></li>
+                <li><span class="material-symbols-outlined" title="all tasks">list_alt</span></li>
+                <li><span class="material-symbols-outlined" title="completed tasks">task_alt</span></li>
+                <li><span class="material-symbols-outlined" title="deleted tasks">delete</span></li>
             </ul>
         </nav>
         <main>
-            <h2>Project Name</h2>
+            <h2 id="project-name">Project Name</h2>
             <span id="open-add-task" title="add a new task" class="material-symbols-outlined" >add_circle</span>
             <div class="todo" id="todo">
                 <h3>todo</h3>
@@ -45,13 +41,23 @@
                 
                 </ol>
             </div>
+            <div class="pending" id="pending">
+                <h3>pending</h3>
+                <ol id="pending-ol">
+                
+                </ol>
+            </div>
               
         </main>   
     </div>
     <dialog id="add-task-dialog">
         <form>
             <p>add new task</p>
-            <input type="text" name="new-task-name" placeholder="what to do.">
+            
+            <input type="text" id="task-description-input" name="new-task-name" placeholder="what to do.">
+            <input type="text" id="task-start-input" name="new-task-start-date" placeholder="enter start date(YYYY/MM/dd)">
+            <input type="text" id="task-end-input" name="new-task-end-date" placeholder="enter end date(YYYY/MM/dd)">
+
             <div class="form-buttons">
                 <button value="" id="add-task-button">add</button>
                 <button formmethod="dialog">cancel</button>

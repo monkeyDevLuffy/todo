@@ -5,11 +5,32 @@
       "projects":[
         {
           "name":"personal project",
-          "tasks":{
-            "todo":["complete homework","compelete assignments"],
-            "upcoming":["sleep"],
-            "completed":["study"]
-          }
+          "tasks":[{
+              "description":"complete homework",
+              "startdate":"2023/10/24",
+              "enddate":"2023/11/2",
+              "completed":"false"
+            },
+            {
+              "description":"compelete assignments",
+              "startdate":"2023/11/2",
+              "enddate":"2023/11/4",
+              "completed":"false"
+            },
+            {
+              "description":"sleep",
+              "startdate":"2023/11/2",
+              "enddate":"2023/11/4",
+              "completed":"true"
+            },
+            {
+              "description":"study",
+              "startdate":"2023/10/5",
+              "enddate":"2023/10/6",
+              "completed":"false"
+            }
+          ]
+
         },
         {
           "name":"company project",
