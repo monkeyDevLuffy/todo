@@ -93,3 +93,10 @@ form>*{
     gap: 1rem;
     justify-content: center;
 }
+form{
+    display: flex;
+    flex-direction: column;
+}
+.delete:hover{
+    color: red;
+}

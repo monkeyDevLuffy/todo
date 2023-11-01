@@ -10,25 +10,29 @@
               "description":"complete homework",
               "startdate":"2023/10/24",
               "enddate":"2023/11/2",
-              "completed":"false"
+              "completed":"false",
+              "deleted":"false"
             },
             {
               "description":"compelete assignments",
               "startdate":"2023/11/2",
               "enddate":"2023/11/4",
-              "completed":"false"
+              "completed":"false",
+              "deleted":"false"
             },
             {
               "description":"sleep",
               "startdate":"2023/11/2",
               "enddate":"2023/11/4",
-              "completed":"true"
+              "completed":"true",
+              "deleted":"false"
             },
             {
               "description":"study",
               "startdate":"2023/10/5",
               "enddate":"2023/10/6",
-              "completed":"false"
+              "completed":"false",
+              "deleted":"false"
             }
           ]
 

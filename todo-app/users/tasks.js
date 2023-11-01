@@ -9,8 +9,20 @@ async function getTasks(){
     const tasks = user.projects[localStorage.getItem("project")].tasks;
     displayTasks(tasks);
 }
+function deleteTask(task){
+    const parent = task.parentElement;
+    deleted.push(task);
+    parent.removeChild(task);
+    console.log(deleted);
+}
 function createNewTaskNode(name,option){
     const newTask = document.createElement("li");
+    const deletebutton = document.createElement("span");
+    deletebutton.innerHTML='delete'
+    deletebutton.className='material-symbols-outlined delete';
+    deletebutton.style.float='right';
+
+
     newTask.className="todo-item";
     if(option==='completed'){
         newTask.innerHTML=`<input type="checkbox" checked/><span>${name}</span>`;
@@ -20,14 +32,19 @@ function createNewTaskNode(name,option){
     else{
         newTask.innerHTML=`<input type="checkbox" /><span>${name}</span>`;
     }
-    
+    deletebutton.addEventListener('click',(event)=>deleteTask(event.target.parentElement))
+    newTask.appendChild(deletebutton);
     return newTask;
 }
 function classifyTasks(task){
     const start = new Date(task.startdate);
     const end = new Date(task.enddate);
-    // console.log(d.getTime());
-    if(task.completed==='true'){
+    if(task.deleted==='true'){
+        const deletedTask = document.createElement("li");
+        deletedTask.innerHTML  = `<span>${task.description}</span>`
+        deleted.push(deletedTask);
+        console.log(deleted);
+    }else if(task.completed==='true'){
         completedOl.appendChild(createNewTaskNode(task.description,"completed"))
     }else if(end<Date.now()){
         pendingOl.appendChild(createNewTaskNode(task.description,'pending'));
@@ -54,7 +71,8 @@ function addNewTask(event){
             "description":taskDescriptionInput.value,
             "startdate":taskStartInput.value,
             "enddate":taskEndInput.value,
-            "completed":"false"   
+            "completed":"false",   
+            "deleted":"false"
         }
         classifyTasks(taskObj);
     }
@@ -79,7 +97,22 @@ function changeTaskStatus(event){
     }
     //add delete fuctionality here
 }
-
+function showDeletedTasks(){
+    mainSection.innerHTML=`
+        <h2>deleted tasks</h2>
+        <ul class ="deleted-tasks">
+            
+        </ul>
+    `;
+    console.log(deleted);
+    deleted.forEach((element)=>{
+        const newDeletedTask = document.createElement('li');
+        console.log();
+        newDeletedTask.innerHTML=`${element.querySelector('span').innerText}`;
+        document.querySelector('.deleted-tasks').appendChild(newDeletedTask);
+    })
+    
+}
 const taskPopup=document.getElementById("add-task-dialog");
 const openTaskDialogButton = document.querySelector("#open-add-task");
 const addTaskButton = document.querySelector("#add-task-button");
@@ -91,9 +124,11 @@ const completedOl = document.getElementById("completed-ol");
 const upcomingOl= document.getElementById("upcoming-ol");
 const pendingOl= document.getElementById("pending-ol");
 const homeBtn = document.getElementById("go-home");
-
-console.log(localStorage.getItem("project"));
-console.log(localStorage.getItem('username'));
+const deleted =[];
+const showDeletedTasksBtn=document.getElementById("deleted-tasks");
+const mainSection = document.querySelector('main');
+// console.log(localStorage.getItem("project"));
+// console.log(localStorage.getItem('username'));
 
 
 //event listeners
@@ -105,3 +140,4 @@ window.addEventListener('DOMContentLoaded',getTasks);
 homeBtn.addEventListener('click',()=>{
     window.location.href="./projects.html"; 
 })
+showDeletedTasksBtn.addEventListener('click',showDeletedTasks)
