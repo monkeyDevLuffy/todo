@@ -13,7 +13,7 @@
     <div class="container">
         <nav>
             <ul>
-                <li id="go-home" ><span class="material-symbols-outlined" title="home">home</span></li>
+                <li ><a href="tasks.html"><span class="material-symbols-outlined" title="home">home</a></span></li>
                 <li><span class="material-symbols-outlined" title="favorite tasks">star</span></li>
                 <li><span class="material-symbols-outlined" title="all tasks">list_alt</span></li>
                 <li><span class="material-symbols-outlined" title="completed tasks">task_alt</span></li>
@@ -44,7 +44,6 @@
             <div class="pending" id="pending">
                 <h3>pending</h3>
                 <ol id="pending-ol">
-                
                 </ol>
             </div>
               
@@ -63,6 +62,15 @@
                 <button formmethod="dialog">cancel</button>
             </div>
             
+        </form>
+    </dialog> 
+    <dialog id="confirm-delete-dialog">
+        <p>Move this task to bin?</p>
+        <form >
+            <div class="form-buttons">
+                <button id="confirm-delete-button">delete</button>
+                <button formmethod="dialog">cancel</button>
+             </div>
         </form>
     </dialog> 
 </body>

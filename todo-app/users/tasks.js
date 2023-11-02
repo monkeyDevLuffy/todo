@@ -10,10 +10,16 @@ async function getTasks(){
     displayTasks(tasks);
 }
 function deleteTask(task){
-    const parent = task.parentElement;
-    deleted.push(task);
-    parent.removeChild(task);
-    console.log(deleted);
+    deleteTaskModal.showModal();
+    const confirmDeleteButton=document.getElementById("confirm-delete-button");
+    confirmDeleteButton.addEventListener('click',function(event){
+        event.preventDefault();
+        const parent = task.parentElement;
+        deleted.push(task);
+        parent.removeChild(task);
+        console.log(deleted);
+        deleteTaskModal.close();
+    })
 }
 function createNewTaskNode(name,option){
     const newTask = document.createElement("li");
@@ -99,7 +105,7 @@ function changeTaskStatus(event){
 }
 function showDeletedTasks(){
     mainSection.innerHTML=`
-        <h2>deleted tasks</h2>
+        <h2>bin</h2>
         <ul class ="deleted-tasks">
             
         </ul>
@@ -123,12 +129,10 @@ const todoOl=document.getElementById("todo-ol");
 const completedOl = document.getElementById("completed-ol");
 const upcomingOl= document.getElementById("upcoming-ol");
 const pendingOl= document.getElementById("pending-ol");
-const homeBtn = document.getElementById("go-home");
 const deleted =[];
 const showDeletedTasksBtn=document.getElementById("deleted-tasks");
 const mainSection = document.querySelector('main');
-// console.log(localStorage.getItem("project"));
-// console.log(localStorage.getItem('username'));
+const deleteTaskModal = document.getElementById("confirm-delete-dialog");
 
 
 //event listeners
@@ -137,7 +141,5 @@ addTaskButton.addEventListener("click",addNewTask);
 todoOl.addEventListener("click",changeTaskStatus);
 completedOl.addEventListener("click",changeTaskStatus);
 window.addEventListener('DOMContentLoaded',getTasks);
-homeBtn.addEventListener('click',()=>{
-    window.location.href="./projects.html"; 
-})
+
 showDeletedTasksBtn.addEventListener('click',showDeletedTasks)

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
-
+:root{
+    --primary-hex:#0069c2;
+}
 *{
     margin: 0px;
     font-family: 'Poppins', sans-serif;
@@ -25,7 +27,7 @@ main>h2{
     margin: 1rem;
 }
 nav{
-    background-color: #0069c2;
+    background-color: var(--primary-hex);
 }
 main h3{
     color: grey;
@@ -49,6 +51,10 @@ nav ul{
     gap: 2rem;
 
 }
+nav a:visited{
+    text-decoration: none;
+    color: white;
+}
 
 #open-add-task{
     cursor: pointer;
@@ -64,16 +70,17 @@ dialog{
     transform: translate(-50%,-50%);
     border: none;
     border-radius: 0.5rem;
-
+    min-width: 50vw;
 }
 
 dialog button{
     color: white;
-    background-color: #0069c2;
+    background-color: var(--primary-hex);
     border: none;
     padding: .4rem;
     transition: background-color 1s,box-shadow 1s;
     width: 50%;
+    text-align: center;
 }
 
 dialog button:hover{
@@ -92,6 +99,7 @@ form>*{
     display: flex;
     gap: 1rem;
     justify-content: center;
+    max-height: 2rem;
 }
 form{
     display: flex;
