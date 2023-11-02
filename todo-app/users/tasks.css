@@ -5,6 +5,7 @@
 *{
     margin: 0px;
     font-family: 'Poppins', sans-serif;
+    font-weight: 900;
 
 }
 .container{
@@ -107,4 +108,15 @@ form{
 }
 .delete:hover{
     color: red;
+}
+.todo-checkbox{
+    margin-left: 1rem;
+}
+.dates{
+    color: rgb(78, 76, 76);
+    font-weight: 100;
+}
+.close-x{
+    float: right;
+    width: 2rem;
 }

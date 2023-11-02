@@ -21,25 +21,53 @@ function deleteTask(task){
         deleteTaskModal.close();
     })
 }
-function createNewTaskNode(name,option){
+function createNewTaskNode(name,option,start,end){
     const newTask = document.createElement("li");
+    newTask.className="todo-item";
+    newTask.innerHTML=`<span>${name}</span>`;
+    const taskDiv = document.createElement("div");
+
+    //delete button
+
     const deletebutton = document.createElement("span");
-    deletebutton.innerHTML='delete'
+    deletebutton.innerHTML='delete';
     deletebutton.className='material-symbols-outlined delete';
     deletebutton.style.float='right';
 
-
-    newTask.className="todo-item";
-    if(option==='completed'){
-        newTask.innerHTML=`<input type="checkbox" checked/><span>${name}</span>`;
-    }else if(option==="pending" || option === 'upcoming'){
-        newTask.innerHTML=`<span>${name}</span>`;
-    }
-    else{
-        newTask.innerHTML=`<input type="checkbox" /><span>${name}</span>`;
-    }
-    deletebutton.addEventListener('click',(event)=>deleteTask(event.target.parentElement))
     newTask.appendChild(deletebutton);
+    
+    if(option==='completed'){
+        let checkBox=document.createElement('input');
+        checkBox.setAttribute('type','checkbox');
+        checkBox.setAttribute("checked",'');
+        checkBox.className='todo-checkbox';
+        newTask.appendChild(checkBox);
+        
+    }else if(option==='todo'){
+        checkBox=document.createElement('input');
+        checkBox.setAttribute('type','checkbox');
+        checkBox.className='todo-checkbox';
+
+        newTask.appendChild(checkBox);
+    }
+    //calculate dates
+    const startDate = document.createElement("span");
+    const endDate = document.createElement("span");
+    
+    startDate.innerHTML=`<i>start date :</i> ${start.getDate()}-${start.toLocaleString('default',{ month: 'short' })}-${start.getFullYear()}`;
+    endDate.innerHTML=` <i>end date :</i> ${end.getDate()}-${end.toLocaleString('default',{ month: 'short' })}-${end.getFullYear()}`;
+
+    startDate.className='dates';
+    endDate.className='dates';
+
+    taskDiv.appendChild(startDate);
+    taskDiv.appendChild(endDate);
+    newTask.appendChild(taskDiv);
+    
+    console.log(startDate.innerHTML,endDate.innerHTML);
+    // console.log(newTask.querySelector("input").hasAttribute("checked"));
+    deletebutton.addEventListener('click',(event)=>deleteTask(event.target.parentElement))
+ 
     return newTask;
 }
 function classifyTasks(task){
@@ -51,13 +79,13 @@ function classifyTasks(task){
         deleted.push(deletedTask);
         console.log(deleted);
     }else if(task.completed==='true'){
-        completedOl.appendChild(createNewTaskNode(task.description,"completed"))
+        completedOl.appendChild(createNewTaskNode(task.description,"completed",start,end))
     }else if(end<Date.now()){
-        pendingOl.appendChild(createNewTaskNode(task.description,'pending'));
+        pendingOl.appendChild(createNewTaskNode(task.description,'pending',start,end));
     }else if(start>Date.now()){
-        upcomingOl.appendChild(createNewTaskNode(task.description,'upcoming'));
+        upcomingOl.appendChild(createNewTaskNode(task.description,'upcoming',start,end));
     }else{
-        todoOl.appendChild(createNewTaskNode(task.description));
+        todoOl.appendChild(createNewTaskNode(task.description,'todo',start,end));
     }
    
 }
@@ -86,6 +114,7 @@ function addNewTask(event){
 
 }
 function changeTaskStatus(event){
+    console.log(event.target.parentElement);
     if(event.target.type==="checkbox"){
         const task = event.target.parentElement;
         if(task.parentElement.id=="todo-ol"){

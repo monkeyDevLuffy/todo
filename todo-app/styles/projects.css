@@ -111,3 +111,7 @@ form>*{
 h5{
     cursor: pointer;
 }
+.close-x{
+    float: right;
+    width: 2rem;
+}
