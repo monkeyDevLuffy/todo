@@ -54,6 +54,7 @@
             <p>add new task <button formmethod="dialog" class="close-x">&#10005</button></p>
             
             <input type="text" id="task-description-input" name="new-task-name" placeholder="what to do.">
+            <span id="task-warning-text" class="task-warning-text">please enter a task</span>
             <input type="text" id="task-start-input" name="new-task-start-date" placeholder="enter start date(YYYY/MM/dd)">
             <input type="text" id="task-end-input" name="new-task-end-date" placeholder="enter end date(YYYY/MM/dd)">
 
@@ -65,7 +66,6 @@
         </form>
     </dialog> 
     <dialog id="confirm-delete-dialog">
-
         <form >
             <p>Move this task to bin?<button formmethod="dialog" class="close-x">&#10005</button></p>
             <div class="form-buttons">

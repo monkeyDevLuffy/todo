@@ -79,7 +79,6 @@ header>button{
     transform: translate(-50%,-50%);
     border: none;
     border-radius: 0.5rem;
-
 }
 
 dialog button{
@@ -101,7 +100,7 @@ dialog::backdrop{
 
 }
 form>*{
-    margin: .5rem;
+    margin: 0.5rem;
 }
 .form-buttons{
     display: flex;
@@ -114,4 +113,16 @@ h5{
 .close-x{
     float: right;
     width: 2rem;
+}
+.enter-name-warning{
+    font-size: .75rem;
+    margin: 0px;
+    margin-left: 1rem;
+    line-height: 0px;
+    visibility: hidden;
+    padding: 0px;
+    color: red;
+}
+.show{
+    visibility: visible;
 }
