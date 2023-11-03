@@ -99,7 +99,14 @@ function showTaskPopup(){
 }
 function addNewTask(event){
     event.preventDefault();
-    if(taskDescriptionInput.value!=="" && taskStartInput.value!=="" && taskEndInput.value !==""){
+    if(taskDescriptionInput.value===""){
+        document.getElementById("task-warning-text").classList.add("show");
+        setTimeout(()=>{
+            document.getElementById("task-warning-text").classList.remove("show");
+
+        },2000)
+    }
+    else if(taskDescriptionInput.value!=="" && taskStartInput.value!=="" && taskEndInput.value !==""){
         taskPopup.close();
         const taskObj={
             "description":taskDescriptionInput.value,

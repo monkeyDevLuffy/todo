@@ -10,6 +10,12 @@ async function createNewProject(event){
         const project = createNewProjectCard(name);
         projects.appendChild(project);
         createProjectDialog.close();
+    }else{
+        document.getElementById("enter-name-warning").classList.add("show");
+        setTimeout(()=>{
+            document.getElementById("enter-name-warning").classList.remove("show");
+
+        },2000)
     }
    
 }

@@ -72,6 +72,7 @@ dialog{
     border: none;
     border-radius: 0.5rem;
     min-width: 50vw;
+    min-height: 200px;
 }
 
 dialog button{
@@ -94,7 +95,7 @@ dialog::backdrop{
 
 }
 form>*{
-    margin: .5rem;
+    margin: .75rem;
 }
 .form-buttons{
     display: flex;
@@ -119,4 +120,16 @@ form{
 .close-x{
     float: right;
     width: 2rem;
+}
+.task-warning-text{
+    line-height: 0px;
+    font-size: 0.75rem;
+    color: red;
+    font-weight: 100;
+    margin: 0px;
+    margin-left: 1rem;
+    visibility: hidden;
+}
+.show{
+    visibility: visible;
 }
