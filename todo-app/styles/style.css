@@ -1,8 +1,11 @@
 /* colors used :  
     #00308F - 
-    #0069c2 - maincolor
+    0069c2 - maincolor
 
 */
+:root{
+    --primary-hex:#0069c2;
+}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 *{
@@ -41,9 +44,42 @@ form>*{
     line-height: 2rem;
 }
 button{
-    background-color: #0069c2;
+    background-color: var(--primary-hex);
     color: white;
     border: none;
     width: 100%;
     line-height: 2rem;
+}
+.form-validation-text{
+    font-weight: 200;
+    color:red;
+    width: 50%;
+    text-align: left;
+    border-radius: 1rem;
+    padding:0rem 0.3rem;
+    position: relative;
+    top: -0.5rem;
+    font-size: .80rem;
+    margin: 0px;
+    line-height: 0.5rem;
+    visibility: hidden;
+    transition: visibility 2s ease-out;
+}
+
+.no-username-alert{ 
+    background-color: red;
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 2rem;
+    position:absolute;
+    z-index: 1;
+    top: 1rem;
+    left: 50%;
+    translate: -50%;
+    opacity: 75%;
+    color: white;
+    visibility: hidden;
+}
+.show{
+    visibility:visible;
 }

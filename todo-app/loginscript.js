@@ -6,7 +6,10 @@ async function userSignin(event){
     const inputUsername = formData.get('username');
     const inputPassword = formData.get('password');
     if(inputUsername===""||inputPassword===""){
-        alert("enter complete credentials");
+        document.getElementById('no-username-alert').classList.add("show");
+        setTimeout(()=>{
+            document.getElementById('no-username-alert').classList.remove("show");
+        },2000);
         return;
     }else{
         const users = await fetch("./user-info.json").then(response=>response.json());
@@ -14,14 +17,20 @@ async function userSignin(event){
             return element.username===inputUsername?true:false;
         });
         if(user===undefined){
-            alert("user is not registered");
+            document.getElementById('wrong-username-warning').classList.add("show");
+            setTimeout(()=>{
+                document.getElementById('wrong-username-warning').classList.remove("show");
+            },2000)
             return;
         }else{
             if(inputPassword===user.password){
                 localStorage.setItem("username", user.username);
                 window.location.replace('/users/projects.html');
             }else{
-                alert("incorrect password");
+                document.getElementById('wrong-password-warning').classList.add("show");
+                setTimeout(()=>{
+                    document.getElementById('wrong-password-warning').classList.remove("show");
+                },2000)
                 return
             }
         }
