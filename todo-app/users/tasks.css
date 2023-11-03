@@ -71,8 +71,9 @@ dialog{
     transform: translate(-50%,-50%);
     border: none;
     border-radius: 0.5rem;
-    min-width: 50vw;
+    min-width: 300px;
     min-height: 200px;
+    max-width: 450px;
 }
 
 dialog button{
@@ -132,4 +133,10 @@ form{
 }
 .show{
     visibility: visible;
+}
+dialog label{
+    font-size: 0.75rem;
+    margin: 0px;
+    margin-left: 1rem;
+    color: grey;
 }
